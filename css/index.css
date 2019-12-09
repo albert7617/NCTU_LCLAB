@@ -1,6 +1,6 @@
 #intro {
   height: 100vh;
-  background-image: linear-gradient(to top, rgba(43, 90, 150, 0.8), rgba(43, 90, 150, 0.8)), url(../img/building.png);
+  background-image: linear-gradient(to top, rgba(43, 90, 150, 0.8), rgba(43, 90, 150, 0.8)), url(../img/building.webp);
   background-size: cover;
   background-repeat: no-repeat;
 }
