@@ -42,6 +42,7 @@
 
   .masonry {
     grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: 1fr 1fr;
   }
   .item {
     height: 250px;
@@ -56,7 +57,7 @@
 @media (min-width: 576px) and (max-width: 767.98px) {
   .masonry {
     grid-template-columns: repeat(2, 1fr);
-    
+    -ms-grid-columns: 1fr 1fr;
   }
   .item {
     height: 250px;
@@ -67,7 +68,7 @@
 @media (min-width: 768px) and (max-width: 991.98px) {
   .masonry {
     grid-template-columns: repeat(3, 1fr);
-    
+    -ms-grid-columns: 1fr 1fr 1fr;
   }
   .item {
     height: 250px;
@@ -78,6 +79,7 @@
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .masonry {
     grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
   }
   
 }
@@ -86,6 +88,7 @@
 @media (min-width: 1200px) {
   .masonry {
     grid-template-columns: repeat(5, 1fr);
+    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
   }
   .item {
     height: 250px;
