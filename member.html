@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="dist/jquery-3.4.1.min.js"></script>
+  <script src="dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/fontawesome-free-5.11.2-web/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/member.css">
+  <title>交大液晶實驗室</title>
+</head>
+
+<body>
+  <section id="intro">
+    <header>
+      <div class="header-left d-none d-sm-block">
+        <div class="wrapper">
+          <a href="#" class="wrap"><i class="fas fa-braille"></i><span class="d-md-inline-block d-none">液晶實驗室</span></a>
+        </div>
+      </div>
+      <div class="header-right d-none d-sm-block">
+        <ul>
+          <li><a href="index.html"><span class="wrap"><span>About</span><span>關於我們</span></span></a></li>
+          <li><a href="member.html"><span class="wrap"><span>Member</span><span>實驗室成員</span></span></a></li>
+          <li><a href="publication.html"><span class="wrap"><span>Publication</span><span>著作發表</span></span></a></li>
+          <li><a href="#"><span class="wrap"><span>Language</span><span>English</span></span></a></li>
+        </ul>
+      </div>
+      <div class="header-right d-flex d-sm-none justify-content-end flex-row w-100">
+        <ul>
+          <li class="fa-icon">
+            <i id="toggler" class="fa fa-bars bar fa-2x"></i>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="inner">
+      <h1>實驗室成員</h1>
+    </div>
+  </section>
+  <section id="members">
+    <div class="container my-5">
+      <!-- <div class="row justify-content-center">
+        <div class="col-12">
+          <h1 class="text-center">指導教授</h1>
+        </div>
+        <div class="col-12 col-md-8 col-lg-6">
+          <div class="d-flex flex-row p-3 bg-white">
+            <img src="img/members/00_P_yihsin.jpg" alt="" class="master-image">
+            <div class="d-flex flex-column px-2">
+              <h3>林怡欣</h3>
+              <h5>交通大學光電工程研究所教授<br>液晶實驗室指導教授</h5>
+              <a href="mailto:yilin@mail.nctu.edu.tw" style="color: #007bff;"><i class="far fa-envelope"></i>yilin@mail.nctu.edu.tw</a>
+              <div class="master-horizontal-line"></div>
+              <div class="master-vertical-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <h1>指導教授</h1>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-12 my-3">
+          <h1 class="text-center">在校師生</h1>
+        </div>
+        <div class="col-12">
+          <div class="masonry student">
+            
+          </div>
+        </div>
+        <div class="col-12 my-5">
+          <h1 class="text-center">畢業校友</h1>
+        </div>
+        <div class="col-12">
+          <div class="masonry alumni">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <span>© 2019 LCLAB.</span>
+    <span>由XXX維護</span>
+    <span>2015/9/28 更新</span>
+  </footer>
+  <section id="nav-mobile" style="display: none;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><a href="index.html">關於我們</a></div>
+        <div class="col-12"><a href="member.html">實驗室成員</a></div>
+        <div class="col-12"><a href="publication.html">著作發表</a></div>
+        <div class="col-12"><a href="#">English</a></div>
+      </div>
+    </div>
+    <div class="closenav">
+      <i id="closenav" class="fas fa-times"></i>
+    </div>
+  </section>
+</body>
+<script>
+  $.getJSON("data/members.json", function(members) {
+    var node_a = "";
+    var node_b = "";
+    for(index in members) {
+      var mail = "";
+      var desc = "";
+      var avatar = "";
+      member = members[index];
+      if (member.email != '') {
+        mail = `<a href="mailto:${member.email}"><i class="fas fa-envelope"></i></a>`;
+      }
+      if (member.desc != '') {
+        desc = `<a href="${member.desc}" target="_blank"><i class="fas fa-info-circle"></i></a>`;
+      }
+      if (member.avatar == '') {
+        avatar = 'avatar.jpg';
+      } else {
+        avatar = member.avatar;
+      }
+      if (member.type == 'A') {
+        node_a += `<figure class="item portrait">
+                    <img src="img/members/${avatar}" onerror="this.onerror=null;this.src='img/members/avatar.jpg';">
+                    <figcaption>
+                      <span>${member.name}</span>
+                      <div class="d-flex flex-row justify-content-between">
+                        <span>${member.title}</span>
+                        <div class="d-flex flex-row align-items-center">
+                          ${mail}
+                          ${desc}
+                        </div>
+                      </div>
+                    </figcaption>
+                  </figure>`;
+      } else {
+        node_b += `<figure class="item portrait">
+                    <img src="img/members/${avatar}" onerror="this.onerror=null;this.src='img/members/avatar.jpg';">
+                    <figcaption>
+                      <span>${member.name}</span>
+                      <div class="d-flex flex-row justify-content-between">
+                        <span>${member.title}</span>
+                        <div class="d-flex flex-row align-items-center">
+                          ${mail}
+                          ${desc}
+                        </div>
+                      </div>
+                    </figcaption>
+                  </figure>`;
+      }
+      
+    }
+    $(".student").append($(node_a));
+    $(".alumni").append($(node_b));
+  });
+</script>
+<script src="js/script.js"></script>
+</html>

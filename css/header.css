@@ -1,0 +1,78 @@
+#toggler {
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+ 
+.header-left a {
+  padding: 20px;
+  color: #222;
+}
+
+.header-left a:hover {
+  color: #222;
+  text-decoration: none;
+}
+
+.header-left a.wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 32px;
+}
+
+.header-left i {
+  padding-right: 10px;
+  padding-top: 1px;
+}
+
+header .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; 
+}
+
+.header-right>ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; 
+  margin-bottom: 0;
+}
+
+.header-right>ul>li {
+  padding: 20px;
+}
+
+.header-right>ul>li:last-child:not(.fa-icon) {
+  padding-right: 50px;
+}
+
+.header-right>ul>li>a {
+  color: black;
+}
+
+.header-right>ul>li>a:hover {
+  color: #8d8d8d;
+  text-decoration: none;
+}
+
+.header-right>ul>li span.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-right>ul>li span.wrap>span:nth-child(1) {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-right>ul>li span.wrap>span:nth-child(2) {
+  text-decoration: none;
+}

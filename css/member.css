@@ -1,0 +1,158 @@
+#intro {
+  height: 30vh;
+  background-image: linear-gradient(to top, rgba(43, 90, 150, 0.8), rgba(43, 90, 150, 0.8)), url(../img/member.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 12%;
+}
+#intro .inner {
+  text-align: center;
+  color: white;
+  padding-top: 7vh;
+}
+
+.master-vertical-line {
+  border-left: 3px solid #39a288;
+  height: calc(100% - 50px);
+  position: absolute;
+  width: 1px;
+  bottom: 5px;
+  right: 23px;
+}
+
+.master-horizontal-line {
+  border-bottom: 3px solid #39a288;
+  width: calc(55% - 50px);
+  position: absolute;
+  height: 50px;
+  bottom: 10px;
+  right: 17px;
+}
+
+.master-image {
+  height: auto;
+  width: 200px;
+}
+
+
+@media (max-width: 575.98px) {
+  .master-image {
+    width: 38vw;
+  }
+
+  .masonry {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .item {
+    height: 250px;
+  }
+  figcaption {
+    font-size: 15px;
+    font-weight: 200;
+  }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .masonry {
+    grid-template-columns: repeat(2, 1fr);
+    
+  }
+  .item {
+    height: 250px;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .masonry {
+    grid-template-columns: repeat(3, 1fr);
+    
+  }
+  .item {
+    height: 250px;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .masonry {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+}
+
+
+@media (min-width: 1200px) {
+  .masonry {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .item {
+    height: 250px;
+  }
+}
+
+.masonry {
+  display: grid;
+  grid-gap: 1em;
+  justify-items: center;
+  margin: 0 auto;
+  grid-auto-flow: dense;
+  grid-auto-rows: auto;
+}
+
+.item {
+  width: 100%;
+  height: 300px;
+}
+
+figure {
+  margin: 0;
+}
+
+.masonry .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item {
+  overflow: hidden;
+  position: relative;
+}
+
+.item figcaption {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+figcaption {
+  background: rgba(0,0,0,.7);
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 15%, rgba(255,255,255,0) 100%);
+  background: -o-linear-gradient(bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 15%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 15%, rgba(255,255,255,0) 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  padding: 5px 8px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+figcaption i {
+  margin-left: 10px;
+  color: white;
+}
+
+figcaption>span {
+  font-size: 30px;
+}
+
+figcaption a:hover, figcaption i:hover {
+  cursor: pointer;
+  color: orange;
+}
+
