@@ -11,6 +11,10 @@ body {
   background: #f5f8fa;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 section {
   width: 100vw;
 }

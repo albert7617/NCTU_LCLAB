@@ -29,6 +29,10 @@
   cursor: pointer;
 }
 
+#publication .row:not(:first-child):hover {
+  background-color: #c4e1e1;
+}
+
 #publication .row:first-child {
   border-bottom: solid 3px #D3D3D3;
 }
