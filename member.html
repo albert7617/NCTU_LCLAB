@@ -114,10 +114,10 @@ $.getJSON("data/members.json", function (members) {
     var avatar = "";
     member = members[index];
     if (member.email != '') {
-      mail = `<a href="mailto:${member.email}"><i class="fas fa-envelope"></i></a>`;
+      mail = "<a href='mailto:+"member.email"+'><i class='fas fa-envelope'></i></a>";
     }
     if (member.desc != '') {
-      desc = `<a href="${member.desc}" target="_blank"><i class="fas fa-info-circle"></i></a>`;
+      desc = "<a href='+"member.desc"+' target='_blank'><i class='fas fa-info-circle'></i></a>";
     }
     if (member.avatar == '') {
       avatar = 'avatar.jpg';
@@ -125,33 +125,33 @@ $.getJSON("data/members.json", function (members) {
       avatar = member.avatar;
     }
     if (member.type == 'A') {
-      node_a += `<figure class="item portrait">
-                    <img src="img/members/${avatar}" onerror="this.onerror=null;this.src='img/members/avatar.jpg';">
-                    <figcaption>
-                      <span>${member.name}</span>
-                      <div class="d-flex flex-row justify-content-between">
-                        <span>${member.title}</span>
-                        <div class="d-flex flex-row align-items-center">
-                          ${mail}
-                          ${desc}
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>`;
+      node_a += "<figure class='item portrait'>";
+      node_a += "  <img src='img/members/+"avatar"+' onerror='this.onerror=null;this.src='img/members/avatar.jpg';'>";
+      node_a += "  <figcaption>";
+      node_a += "    <span>+"member.name"+</span>";
+      node_a += "    <div class='d-flex flex-row justify-content-between'>";
+      node_a += "      <span>+"member.title"+</span>";
+      node_a += "      <div class='d-flex flex-row align-items-center'>";
+      node_a += "        +"mail"+";
+      node_a += "        +"desc"+";
+      node_a += "      </div>";
+      node_a += "    </div>";
+      node_a += "  </figcaption>";
+      node_a += "</figure>";
     } else {
-      node_b += `<figure class="item portrait">
-                    <img src="img/members/${avatar}" onerror="this.onerror=null;this.src='img/members/avatar.jpg';">
-                    <figcaption>
-                      <span>${member.name}</span>
-                      <div class="d-flex flex-row justify-content-between">
-                        <span>${member.title}</span>
-                        <div class="d-flex flex-row align-items-center">
-                          ${mail}
-                          ${desc}
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>`;
+      node_b += "<figure class='item portrait'>";
+      node_b += "  <img src='img/members/+"avatar"+' onerror='this.onerror=null;this.src='img/members/avatar.jpg';'>";
+      node_b += "  <figcaption>";
+      node_b += "    <span>+"member.name"+</span>";
+      node_b += "    <div class='d-flex flex-row justify-content-between'>";
+      node_b += "      <span>+"member.title"+</span>";
+      node_b += "      <div class='d-flex flex-row align-items-center'>";
+      node_b += "        +"mail"+";
+      node_b += "        +"desc"+";
+      node_b += "      </div>";
+      node_b += "    </div>";
+      node_b += "  </figcaption>";
+      node_b += "</figure>";
     }
 
   }
