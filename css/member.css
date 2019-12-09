@@ -96,6 +96,7 @@
 }
 
 .masonry {
+  display: -ms-grid;
   display: grid;
   grid-gap: 1em;
   justify-items: center;
