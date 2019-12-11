@@ -83,39 +83,6 @@ span.list-item.bullet {
 }
 
 
-@media (max-width: 575.98px) {
-  #map {
-    height: 550px;
-  }
-}
-
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-  #map {
-    height: 450px;
-  }
-}
-
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-  #map {
-    height: 535px;
-  }
-}
-
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  #map {
-    height: 750px;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  #map {
-    height: 750px;
-  }
-}
 
 .last-row {
   height: 50px;
@@ -132,16 +99,23 @@ span.list-item.bullet {
   color: #ffffff;
 }
 
-#research i {
-  border-radius: 100%;
-  box-shadow: -0.5em 0.5em 1em rgba(0, 0, 0, 0.05);
-  display: block;
-  font-size: 2.75em;
-  height: 3.75em;
-  line-height: 3.75em;
-  margin: 0 auto 0.7em;
-  text-align: center;
-  width: 3.75em;
+#research img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#research .image-container {
+  flex-basis: 50%;
+  max-height: 50%;
+}
+
+#research .text-container {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
 }
 
 #research h4 {
@@ -219,5 +193,56 @@ span.list-item.bullet {
   100% {
     -webkit-transform: translateY(10px);
             transform: translateY(10px);
+  }
+}
+
+
+@media (max-width: 575.98px) {
+  #map {
+    height: 550px;
+  }
+  #research .image-container {
+    max-height: 100%;
+  }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #map {
+    height: 450px;
+  }
+  #research .image-container {
+    max-height: 100%;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #map {
+    height: 535px;
+  }
+  #research .image-container {
+    max-height: 100%;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #map {
+    height: 750px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  #map {
+    height: 750px;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+  /* Put your IE-only styles here. Works for IS 10 & IE 11*/
+  #research .image-container {
+    flex-basis: auto;
   }
 }
