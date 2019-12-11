@@ -16,29 +16,7 @@
 </head>
 <body>
   <section id="intro">
-    <header>
-      <div class="header-left">
-        <div class="wrapper">
-          <a href="index.html" class="wrap"><i class="fas fa-braille"></i><span class="d-md-inline-block">液晶實驗室</span></a>
-        </div>
-      </div>
-      <div class="header-right d-none d-md-block">
-        <ul>
-          <li><a href="index.html"><span class="wrap"><span>About</span><span>關於我們</span></span></a></li>
-          <li><a href="member.html"><span class="wrap"><span>Member</span><span>實驗室成員</span></span></a></li>
-          <li><a href="program.html"><span class="wrap"><span>Program</span><span>研究計畫</span></span></a></li>
-          <li><a href="publication.html"><span class="wrap"><span>Publication</span><span>著作發表</span></span></a></li>
-          <li><a href="#"><span class="wrap"><span>Language</span><span>English</span></span></a></li>
-        </ul>
-      </div>
-      <div class="header-right d-flex d-md-none flex-row justify-content-end align-items-center">
-        <ul>
-          <li class="fa-icon">
-            <i id="toggler" class="fa fa-bars bar fa-2x"></i>
-          </li>
-        </ul>
-      </div>
-    </header>
+    <header w3-include-html="header.html"></header>
     <div class="inner">
       <h1>實驗室成員</h1>
     </div>
@@ -99,22 +77,11 @@
     <span>由XXX維護</span>
     <span>2015/9/28 更新</span>
   </footer>
-  <section id="nav-mobile" style="display: none;">
-    <div class="container">
-      <div class="row">
-        <div class="col-12"><a href="#">關於我們</a></div>
-        <div class="col-12"><a href="member.html">實驗室成員</a></div>
-        <div class="col-12"><a href="program.html">研究計畫</a></div>
-        <div class="col-12"><a href="publication.html">著作發表</a></div>
-        <div class="col-12"><a href="#">English</a></div>
-      </div>
-    </div>
-    <div class="closenav">
-      <i id="closenav" class="fas fa-times"></i>
-    </div>
-  </section>
+  <section id="nav-mobile" w3-include-html="nav-mobile.html" style="display: none;"></section>
 </body>
+<script src="js/script.js"></script>
 <script>
+includeHTML();
 $.getJSON("data/members.json", function (members) {
   var node = {};
   node['A'] = "";
@@ -159,6 +126,6 @@ $.getJSON("data/members.json", function (members) {
   // $(".alumni").append($(node_b));
 });
 </script>
-<script src="js/script.js"></script>
+
 
 </html>
