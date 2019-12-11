@@ -1,11 +1,18 @@
 #intro {
   height: 100vh;
-  background-image: linear-gradient(to top, rgba(43, 90, 150, 0.8), rgba(43, 90, 150, 0.8)), url(../img/building.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 100vw;
+  overflow: hidden;
+  /*background-image: linear-gradient(to top, rgba(43, 90, 150, 0.8), rgba(43, 90, 150, 0.8)), url(../img/building.jpg);*/
+  /*background-size: cover;*/
+  /*background-repeat: no-repeat;*/
+  display: flex;
+  flex-direction: column;
 }
 
 .inner {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 5;
   text-align: center;
   color: white;
   padding-top: 23vh;
@@ -125,6 +132,12 @@ span.list-item.bullet {
 
 #research p {
   text-align: center;
+}
+
+#feature {
+  background-color: #f5f8fa;
+  position: relative;
+  z-index: 5;
 }
 
 #feature img {
