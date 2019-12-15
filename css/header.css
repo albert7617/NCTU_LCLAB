@@ -10,9 +10,25 @@ header {
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.8);
 }
+
+header img {
+  height: 48px;
+  margin-right: 5px;
+  fill: black;
+}
+
+.header-left span:first-child {
+  font-size: 34px;
+  line-height: 32px
+}
+
+.header-left span:last-child {
+  font-size: 15px;
+  line-height: 18px;
+}
  
 .header-left a {
-  padding: 20px 10px;
+  padding: 19px;
   color: #222;
 }
 
