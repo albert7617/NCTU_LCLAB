@@ -109,8 +109,8 @@ $.getJSON("/data/members.json", function (members) {
     node[member.type] += "  </div>";
     node[member.type] += "  <div class='avatar-detail d-flex flex-row p-3'> ";
     node[member.type] += "    <div class='d-flex flex-column'>";
-    node[member.type] += "      <span>"+member.name+"</span>";
-    node[member.type] += "      <span>"+member.degree+"</span>";
+    node[member.type] += "      <span>"+member.name_en+"</span>";
+    node[member.type] += "      <span>"+member.degree_en+"</span>";
     node[member.type] += "    </div>";
     node[member.type] += "    <div class='d-flex flex-row justify-content-end flex-grow-1 align-items-center'>";
     node[member.type] += "      "+mail+"";
