@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="dist/jquery-3.4.1.min.js"></script>
-  <script src="dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+  <script src="/dist/jquery-3.4.1.min.js"></script>
+  <script src="/dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/fontawesome-free-5.11.2-web/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/research.css">
+  <link rel="stylesheet" href="/dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dist/fontawesome-free-5.11.2-web/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/research.css">
   <title>交大液晶實驗室</title>
 </head>
 
@@ -27,7 +27,7 @@
       <div class="row">
         <div class="col-12 col-md-6">
           <div class="img-container">
-            <img src="img/building-business-ceiling-empty-209251.jpg" alt="">
+            <img src="/img/building-business-ceiling-empty-209251.jpg" alt="">
           </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
@@ -40,7 +40,7 @@
       <div class="row flex-row flex-md-row-reverse">
         <div class="col-12 col-md-6">
           <div class="img-container">
-            <img src="img/person-holding-laboratory-flask-2280571.jpg" alt="">
+            <img src="/img/person-holding-laboratory-flask-2280571.jpg" alt="">
           </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
@@ -53,7 +53,7 @@
       <div class="row">
         <div class="col-12 col-md-6">
           <div class="img-container">
-            <img src="img/low-angle-view-of-slightly-opened-door-structure-221047.jpg" alt="">
+            <img src="/img/low-angle-view-of-slightly-opened-door-structure-221047.jpg" alt="">
           </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
@@ -66,7 +66,7 @@
       <div class="row flex-row flex-md-row-reverse">
         <div class="col-12 col-md-6">
           <div class="img-container">
-            <img src="img/high-angle-view-of-a-man-256381.jpg" alt="">
+            <img src="/img/high-angle-view-of-a-man-256381.jpg" alt="">
           </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
@@ -82,28 +82,28 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-lg-3 d-flex flex-column flex-sm-row-reverse flex-md-row-reverse flex-lg-column-reverse p-0">
-          <div class="image-container flex-grow-1"><img src="img/LClens.jpg" alt=""></div>
+          <div class="image-container flex-grow-1"><img src="/img/LClens.jpg" alt=""></div>
           <div class="text-container flex-grow-1">
             <h4>可變焦液晶透鏡</h4>
             <p>Lorem ipsum dolor.</p>
           </div>
         </div>
         <div class="col-12 col-lg-3 d-flex flex-column flex-sm-row flex-md-row flex-lg-column p-0">
-          <div class="image-container flex-grow-1"><img src="img/lcp.png" alt=""></div>
+          <div class="image-container flex-grow-1"><img src="/img/lcp.png" alt=""></div>
           <div class="text-container flex-grow-1">
             <h4>液晶聚合物薄膜</h4>
             <p>Lorem ipsum dolor sit.</p>
           </div>
         </div>
         <div class="col-12 col-lg-3 d-flex flex-column flex-sm-row-reverse flex-md-row-reverse flex-lg-column-reverse p-0">
-          <div class="image-container flex-grow-1"><img src="img/surface.png" alt=""></div>
+          <div class="image-container flex-grow-1"><img src="/img/surface.png" alt=""></div>
           <div class="text-container flex-grow-1">
             <h4>光學相位調變</h4>
             <p>Lorem ipsum dolor sit amet, consectetur.</p>
           </div>
         </div>
         <div class="col-12 col-lg-3 d-flex flex-column flex-sm-row flex-md-row flex-lg-column p-0">
-          <div class="image-container flex-grow-1"><img src="img/surface.png" alt=""></div>
+          <div class="image-container flex-grow-1"><img src="/img/surface.png" alt=""></div>
           <div class="text-container flex-grow-1">
             <h4>液晶元件表面分析</h4>
             <p>Lorem ipsum.</p>
@@ -136,10 +136,10 @@
   </footer>
   <section id="nav-mobile" w3-include-html="nav-mobile.html" style="display: none;"></section>
 </body>
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 <script>
 includeHTML();
-$.getJSON("data/programs.json", function (programs) {
+$.getJSON("/data/programs.json", function (programs) {
   var node = "";
   for (index in programs) {
     program = programs[index];

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/dist/jquery-3.4.1.min.js"></script>
+  <script src="/dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dist/fontawesome-free-5.11.2-web/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/member.css">
+  <title>交大液晶實驗室</title>
+</head>
+<body>
+  <section id="intro">
+    <header w3-include-html="header.html"></header>
+    <div class="inner">
+      <h1>實驗室成員</h1>
+    </div>
+  </section>
+  <section id="members">
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center mb-4">指導教授</h1>
+        </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4 d-flex flex-row justify-content-center justify-content-md-end">
+          <div class="advisor-container w-75">
+            <img src="/img/members/S_20190430205531HIae.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 d-flex flex-row justify-content-center justify-content-md-start pt-5 position-relative">
+          <ul class="info-list">
+            <li>
+              <i class="fas fa-user-tie"></i>林怡欣 教授
+            <li><i class="fas fa-file-alt"></i><a href="https://dop.nctu.edu.tw/Labs/LCLAB/tw/people/CV/YHLin_CV2016.pdf" target="_blank">簡歷<i class="fas fa-external-link-alt ml-2"></i></a></li>
+            </li>
+            <li>
+              <i class="fa fa-phone"></i>
+              <a href="tel:05272-0411#33220">(05)272-0411#33220</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope-open-text"></i>
+              <a href="mailto:yilin@mail.nctu.edu.tw">yilin@mail.nctu.edu.tw</a>
+            </li>
+            <li><i class="fas fa-tag"></i>跨領域光電科學</li>
+            <li><i class="fas fa-bolt"></i>液晶光電元件液晶光學與液晶物理</li>
+          </ul>
+          <div class="advisor-vertical-line"></div>
+          <div class="advisor-horizontal-line"></div>
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-12 my-3 type-a">
+          <h1 class="text-center">博士生</h1>
+        </div>
+        <div class="col-12">
+          <div class="phd-student">
+          </div>
+        </div>
+        <div class="col-12 my-3 type-b">
+          <h1 class="text-center">碩士生</h1>
+        </div>
+        <div class="col-12 my-5 type-c">
+          <h1 class="text-center">畢業校友</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <span>© 2019 LCLAB.</span>
+    <span>由XXX維護</span>
+    <span>2015/9/28 更新</span>
+  </footer>
+  <section id="nav-mobile" w3-include-html="nav-mobile.html" style="display: none;"></section>
+</body>
+<script src="/js/script.js"></script>
+<script>
+includeHTML();
+$.getJSON("/data/members.json", function (members) {
+  var node = {};
+  node['A'] = "";
+  node['B'] = "";
+  node['C'] = "";
+  for (index in members) {
+    var mail = "";
+    var desc = "";
+    var avatar = "";
+    member = members[index];
+    if (member.email != '') {
+      mail = "<a href='mailto:"+member.email+"'><i class='fas fa-envelope'></i></a>";
+    }
+    if (member.desc != '') {
+      desc = "<a href='/cv/"+member.desc+"' target='_blank'><i class='fas fa-info-circle'></i></a>";
+    }
+    if (member.avatar == '') {
+      avatar = 'avatar.jpg';
+    } else {
+      avatar = member.avatar;
+    }
+    node[member.type] += "<div class='col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column px-5 py-4 p-sm-2'> ";
+    node[member.type] += "  <div class='avatar-container flex-grow-1'>";
+    node[member.type] += "    <img class='avatar' src='/img/members/"+avatar+"' onerror='this.onerror=null;this.src=\"/img/members/avatar.jpg\";'>";
+    node[member.type] += "  </div>";
+    node[member.type] += "  <div class='avatar-detail d-flex flex-row p-3'> ";
+    node[member.type] += "    <div class='d-flex flex-column'>";
+    node[member.type] += "      <span>"+member.name+"</span>";
+    node[member.type] += "      <span>"+member.degree+"</span>";
+    node[member.type] += "    </div>";
+    node[member.type] += "    <div class='d-flex flex-row justify-content-end flex-grow-1 align-items-center'>";
+    node[member.type] += "      "+mail+"";
+    node[member.type] += "      "+desc+"";
+    node[member.type] += "    </div>";
+    node[member.type] += "  </div>";
+    node[member.type] += "</div>";
+
+  }
+  $(".type-a").after($(node['A']));
+  $(".type-b").after($(node['B']));
+  $(".type-c").after($(node['C']));
+});
+</script>
+
+
+</html>
