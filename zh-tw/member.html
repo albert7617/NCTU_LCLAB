@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="/dist/jquery-3.4.1.min.js"></script>
-  <script src="/dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+  <script src="../dist/jquery-3.4.1.min.js"></script>
+  <script src="../dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/dist/fontawesome-free-5.11.2-web/css/all.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/member.css">
+  <link rel="stylesheet" href="../dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/fontawesome-free-5.11.2-web/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/member.css">
   <title>交大液晶實驗室</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 d-flex flex-row justify-content-center justify-content-md-end">
           <div class="advisor-container w-75">
-            <img src="/img/members/S_20190430205531HIae.jpg" alt="">
+            <img src="../img/members/S_20190430205531HIae.jpg" alt="">
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-5 d-flex flex-row justify-content-center justify-content-md-start pt-5 position-relative">
@@ -79,10 +79,10 @@
   </footer>
   <section id="nav-mobile" w3-include-html="nav-mobile.html" style="display: none;"></section>
 </body>
-<script src="/js/script.js"></script>
+<script src="../js/script.js"></script>
 <script>
 includeHTML();
-$.getJSON("/data/members.json", function (members) {
+$.getJSON("../data/members.json", function (members) {
   var node = {};
   node['A'] = "";
   node['B'] = "";
@@ -105,7 +105,7 @@ $.getJSON("/data/members.json", function (members) {
     }
     node[member.type] += "<div class='col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column px-5 py-4 p-sm-2'> ";
     node[member.type] += "  <div class='avatar-container flex-grow-1'>";
-    node[member.type] += "    <img class='avatar' src='/img/members/"+avatar+"' onerror='this.onerror=null;this.src=\"/img/members/avatar.jpg\";'>";
+    node[member.type] += "    <img class='avatar' src='/img/members/"+avatar+"' onerror='this.onerror=null;this.src=\"../img/members/avatar.jpg\";'>";
     node[member.type] += "  </div>";
     node[member.type] += "  <div class='avatar-detail d-flex flex-row p-3'> ";
     node[member.type] += "    <div class='d-flex flex-column'>";
