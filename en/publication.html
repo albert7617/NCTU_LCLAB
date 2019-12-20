@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="/dist/jquery-3.4.1.min.js"></script>
-  <script src="/dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+  <script src="../dist/jquery-3.4.1.min.js"></script>
+  <script src="../dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/dist/fontawesome-free-5.11.2-web/css/all.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/publication.css">
+  <link rel="stylesheet" href="../dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/fontawesome-free-5.11.2-web/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/publication.css">
   <title>交大液晶實驗室</title>
 </head>
 
@@ -56,10 +56,10 @@
     </div>
   </div>
 </body>
-<script src="/js/script.js"></script>
+<script src="../js/script.js"></script>
 <script>
 includeHTML();
-$.getJSON("/data/publications.json", function (publications) {
+$.getJSON("../data/publications.json", function (publications) {
   var node = "";
   for (index in publications) {
     publication = publications[index];
