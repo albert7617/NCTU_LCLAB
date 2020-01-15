@@ -200,7 +200,7 @@
 <script src="js/script.js"></script>
 <script>
 includeHTML();
-$.getJSON("../data/announcements.json", function (announcements) {
+$.getJSON("/data/announcements.json", function (announcements) {
   var node = "";
   for (index in announcements) {
     announcement = announcements[index];
