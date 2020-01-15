@@ -18,6 +18,37 @@
   padding-top: 23vh;
 }
 
+#announcement-list .row {
+  margin: 0;
+}
+
+#announcement-list .row>div:nth-child(3)>span {
+  text-align: center; 
+}
+
+#announcement-list .row {
+  padding: 10px 0;
+  border-bottom: solid 1px #D3D3D3;
+  cursor: pointer;
+}
+
+#announcement-list .row:not(:first-child):hover {
+  background-color: #c4e1e1;
+}
+
+#announcement-list .row:first-child {
+  border-bottom: solid 3px #D3D3D3;
+}
+
+#announcement-list .row:last-child {
+  border-bottom: none; 
+}
+
+#announcement-list .row:nth-child(2n) {
+  background-color: rgba(99, 116, 133, 0.075);
+}
+
+
 @media only screen and (max-width: 960px) {
   #intro {
     height: 60vh;

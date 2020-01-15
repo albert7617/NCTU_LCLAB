@@ -27,6 +27,7 @@
         <div class="col-12">
           <h1 class="text-center mb-4">指導教授</h1>
         </div>
+      </div>
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 d-flex flex-row justify-content-center justify-content-md-end">
           <div class="advisor-container w-75">
@@ -37,7 +38,9 @@
           <ul class="info-list">
             <li>
               <i class="fas fa-user-tie"></i>林怡欣 教授
-            <li><i class="fas fa-file-alt"></i><a href="https://dop.nctu.edu.tw/Labs/LCLAB/tw/people/CV/YHLin_CV2016.pdf" target="_blank">簡歷<i class="fas fa-external-link-alt ml-2"></i></a></li>
+            </li>
+            <li>
+              <i class="fas fa-file-alt"></i><a href="https://dop.nctu.edu.tw/Labs/LCLAB/tw/people/CV/YHLin_CV2016.pdf" target="_blank">簡歷<i class="fas fa-external-link-alt ml-2"></i></a></li>
             </li>
             <li>
               <i class="fa fa-phone"></i>
@@ -54,14 +57,48 @@
           <div class="advisor-horizontal-line"></div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center my-4">榮譽退休教授</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4 d-flex flex-row justify-content-center justify-content-md-end">
+          <div class="advisor-container w-75">
+            <img src="../img/members/S_20190513155205i38H.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 d-flex flex-row justify-content-center justify-content-md-start pt-5 position-relative">
+          <ul class="info-list">
+            <li>
+              <i class="fas fa-user-tie"></i>王淑霞 教授
+            </li>
+            <!-- <li><i class="fas fa-file-alt"></i><a href="https://dop.nctu.edu.tw/Labs/LCLAB/tw/people/CV/YHLin_CV2016.pdf" target="_blank">簡歷<i class="fas fa-external-link-alt ml-2"></i></a></li>
+            </li> -->
+            <li>
+              <i class="fa fa-phone"></i>
+              <a href="tel:05272-0411#56388">(05)272-0411#56388</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope-open-text"></i>
+              <a href="mailto:shuhchen@mail.nctu.edu.tw">shuhchen@mail.nctu.edu.tw</a>
+            </li>
+            <!-- <li><i class="fas fa-tag"></i>跨領域光電科學</li> -->
+            <li><i class="fas fa-bolt"></i>液態晶體、非線性光學、液晶顯示器</li>
+          </ul>
+          <div class="advisor-vertical-line"></div>
+          <div class="advisor-horizontal-line"></div>
+        </div>
       </div>
       <div class="row">
         <div class="col-12 my-3 type-a">
           <h1 class="text-center">博士生</h1>
         </div>
-        <div class="col-12">
-          <div class="phd-student">
-          </div>
+        <div class="col-12 my-3 type-d">
+          <h1 class="text-center">博士後研究生</h1>
+        </div>
+        <div class="col-12 my-3 type-e">
+          <h1 class="text-center">研究助理</h1>
         </div>
         <div class="col-12 my-3 type-b">
           <h1 class="text-center">碩士生</h1>
@@ -87,6 +124,8 @@ $.getJSON("../data/members.json", function (members) {
   node['A'] = "";
   node['B'] = "";
   node['C'] = "";
+  node['D'] = "";
+  node['E'] = "";
   for (index in members) {
     var mail = "";
     var desc = "";
@@ -110,7 +149,8 @@ $.getJSON("../data/members.json", function (members) {
     node[member.type] += "  <div class='avatar-detail d-flex flex-row p-3'> ";
     node[member.type] += "    <div class='d-flex flex-column'>";
     node[member.type] += "      <span>"+member.name+"</span>";
-    node[member.type] += "      <span>"+member.degree+"</span>";
+    node[member.type] += "      <span>"+member.name_en+"</span>";
+    // node[member.type] += "      <span>"+member.degree+"</span>";
     node[member.type] += "    </div>";
     node[member.type] += "    <div class='d-flex flex-row justify-content-end flex-grow-1 align-items-center'>";
     node[member.type] += "      "+mail+"";
@@ -123,6 +163,8 @@ $.getJSON("../data/members.json", function (members) {
   $(".type-a").after($(node['A']));
   $(".type-b").after($(node['B']));
   $(".type-c").after($(node['C']));
+  $(".type-c").after($(node['D']));
+  $(".type-c").after($(node['E']));
 });
 </script>
 

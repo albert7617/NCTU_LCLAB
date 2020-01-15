@@ -22,7 +22,7 @@
     <div class="slideshow-image" style="background-image: url('img/1065.jpg')"></div>
     <div class="slideshow-image" style="background-image: url('img/27073275_10215343601365558_6434774905797710019_n.jpg')"></div>
     <div class="slideshow-image" style="background-image: url('img/DSC03654.jpg')"></div>
-    <header w3-include-html="zh-tw/header.html"></header>
+    <header w3-include-html="zh-tw/header.html" data-location="index.html"></header>
     <div class="inner flex-grow-1 d-flex flex-column justify-content-center">
       <h1>液晶實驗室</h1>
       <h4>LC Lab</h4>
@@ -32,6 +32,23 @@
   <section id="vision">
     <div class="container my-5 content">
       <div class="row mt-3">
+        <div class="col-12  vision-flex-content">
+          <div class="icon-container">
+            <i class="fab fa-affiliatetheme"></i>
+            <div class="vertical-line"></div>
+          </div>
+          <div class="detail-container">
+            <h3>公告</h3>
+            <div id="announcement-list" class="list-item">
+              <div class="row">
+                <div class="col-12 col-md-3 col-lg-2 d-flex flex-column justify-content-center align-items-center"><span>日期</span></div>
+                <div class="col-12 col-md-9 col-lg-10 d-flex flex-column justify-content-center align-items-center"><span>標題</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-12  vision-flex-content">
           <div class="icon-container">
             <i class="fab fa-affiliatetheme"></i>
@@ -164,7 +181,39 @@
     <span>2015/9/28 更新</span>
   </footer>
   <section id="nav-mobile" w3-include-html="zh-tw/nav-mobile.html" style="display: none;"></section>
+  <div id="announcement" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">公告</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 <script src="js/script.js"></script>
-<script>includeHTML();</script>
+<script>
+includeHTML();
+$.getJSON("../data/announcements.json", function (announcements) {
+  var node = "";
+  for (index in announcements) {
+    announcement = announcements[index];
+    node += "<div class='row' data-content='"+announcement.content+"' data-toggle='modal' data-target='#announcement'>";
+    node += "  <div class='col-12 col-md-3 col-lg-2 d-flex flex-column justify-content-center align-items-center'><span>" + announcement.time + "</span></div>";
+    node += "  <div class='col-12 col-md-9 col-lg-10 d-flex flex-column justify-content-center align-items-center'><span>" + announcement.title + "</span></div>";
+    node += "</div>";
+  }
+  $(node).insertAfter('#announcement-list .row');
+});
+$('#announcement').on('show.bs.modal', function (e) {
+  var content = $(e.relatedTarget).data('content').replace(/(?:\r\n|\r|\n)/g, '<br>');
+  $('#announcement .modal-body').html(content);
+})
+</script>
 </html>

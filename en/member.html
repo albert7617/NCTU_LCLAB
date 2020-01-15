@@ -59,9 +59,11 @@
         <div class="col-12 my-3 type-a">
           <h1 class="text-center">博士生</h1>
         </div>
-        <div class="col-12">
-          <div class="phd-student">
-          </div>
+        <div class="col-12 my-3 type-d">
+          <h1 class="text-center">博士後研究生</h1>
+        </div>
+        <div class="col-12 my-3 type-e">
+          <h1 class="text-center">研究助理</h1>
         </div>
         <div class="col-12 my-3 type-b">
           <h1 class="text-center">碩士生</h1>
@@ -87,6 +89,8 @@ $.getJSON("../data/members.json", function (members) {
   node['A'] = "";
   node['B'] = "";
   node['C'] = "";
+  node['D'] = "";
+  node['E'] = "";
   for (index in members) {
     var mail = "";
     var desc = "";
@@ -109,8 +113,9 @@ $.getJSON("../data/members.json", function (members) {
     node[member.type] += "  </div>";
     node[member.type] += "  <div class='avatar-detail d-flex flex-row p-3'> ";
     node[member.type] += "    <div class='d-flex flex-column'>";
+    node[member.type] += "      <span>"+member.name+"</span>";
     node[member.type] += "      <span>"+member.name_en+"</span>";
-    node[member.type] += "      <span>"+member.degree_en+"</span>";
+    // node[member.type] += "      <span>"+member.degree_en+"</span>";
     node[member.type] += "    </div>";
     node[member.type] += "    <div class='d-flex flex-row justify-content-end flex-grow-1 align-items-center'>";
     node[member.type] += "      "+mail+"";
@@ -123,6 +128,8 @@ $.getJSON("../data/members.json", function (members) {
   $(".type-a").after($(node['A']));
   $(".type-b").after($(node['B']));
   $(".type-c").after($(node['C']));
+  $(".type-c").after($(node['D']));
+  $(".type-c").after($(node['E']));
 });
 </script>
 
