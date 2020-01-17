@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="dist/jquery-3.4.1.min.js"></script>
+  <script src="dist/papaparse.min.js"></script>
   <script src="dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
@@ -200,16 +201,19 @@
 <script src="js/script.js"></script>
 <script>
 includeHTML();
-$.getJSON("/data/announcements.json", function (announcements) {
-  var node = "";
-  for (index in announcements) {
-    announcement = announcements[index];
-    node += "<div class='row' data-content='"+announcement.content+"' data-toggle='modal' data-target='#announcement'>";
-    node += "  <div class='col-12 col-md-3 col-lg-2 d-flex flex-column justify-content-center align-items-center'><span>" + announcement.time + "</span></div>";
-    node += "  <div class='col-12 col-md-9 col-lg-10 d-flex flex-column justify-content-center align-items-center'><span>" + announcement.title + "</span></div>";
-    node += "</div>";
-  }
-  $(node).insertAfter('#announcement-list .row');
+$.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0z0X8iRJ9hflgbQ2NkmommiEsBveMHdhcFUXgK9-IC6g8iC-L1LHh-euUxVVO83jN9nTLF-J3hd_e/pub?output=csv&gid=517876315', function(data) {
+  Papa.parse(data, {
+    header: true,
+    worker: true,
+    step: function(results) {
+      var node = "";
+      node += "<div class='row' data-content='"+results.data.content+"' data-toggle='modal' data-target='#announcement'>";
+      node += "  <div class='col-12 col-md-3 col-lg-2 d-flex flex-column justify-content-center align-items-center'><span>" + results.data.time + "</span></div>";
+      node += "  <div class='col-12 col-md-9 col-lg-10 d-flex flex-column justify-content-center align-items-center'><span>" + results.data.title + "</span></div>";
+      node += "</div>";
+      $(node).insertAfter('#announcement-list .row');
+    }
+  });
 });
 $('#announcement').on('show.bs.modal', function (e) {
   var content = $(e.relatedTarget).data('content').replace(/(?:\r\n|\r|\n)/g, '<br>');

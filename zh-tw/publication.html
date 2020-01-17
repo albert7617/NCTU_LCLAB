@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="../dist/jquery-3.4.1.min.js"></script>
+  <script src="../dist/papaparse.min.js"></script>
   <script src="../dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
@@ -59,37 +60,37 @@
 <script src="../js/script.js"></script>
 <script>
 includeHTML();
-$.getJSON("../data/publications.json", function (publications) {
-  var node = "";
-  for (index in publications) {
-    publication = publications[index];
-    var authors = publication.author.split(",").map(function (item) {
-      return item.trim();
-    });
-    var author_node = "";
-    for (i in authors) {
-      author_node += "<span>"+authors[i]+"</span>";
+$.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0z0X8iRJ9hflgbQ2NkmommiEsBveMHdhcFUXgK9-IC6g8iC-L1LHh-euUxVVO83jN9nTLF-J3hd_e/pub?output=csv&gid=1016464023', function(data) {
+  Papa.parse(data, {
+    header: true,
+    worker: true,
+    step: function(results) {
+      var node = "";
+      var authors = results.data.author.split(",").map(function (item) {return item.trim();});
+      var author_node = "";
+      for (i in authors) {
+        author_node += "<span>"+authors[i]+"</span>";
+      }
+      node += "<div class='row' data-abstract='"+results.data.abstract+"' data-image='"+results.data.image+"' data-toggle='modal' data-target='#paper'>";
+      node += "  <div class='col-12 col-md-2 col-lg-1 d-flex flex-column justify-content-center align-items-start align-items-md-center'><span>"+results.data.year+"</span></div>";
+      node += "  <div class='col-12 col-md-7 col-lg-9 d-flex flex-column justify-content-center'><span>"+results.data.title+"</span><span>"+results.data.journal+"</span></div>";
+      node += "  <div class='col-12 col-md-3 col-lg-2 d-none d-md-flex flex-column justify-content-center align-items-center'>"+author_node+"</div>";
+      node += "</div>";
+      $("#publication .container").append($(node));
     }
-    node += "<div class='row' data-abstract='"+publication.abstract+"' data-image='"+publication.image+"' data-toggle='modal' data-target='#paper'>";
-    node += "  <div class='col-12 col-md-2 col-lg-1 d-flex flex-column justify-content-center align-items-start align-items-md-center'><span>"+publication.year+"</span></div>";
-    node += "  <div class='col-12 col-md-7 col-lg-9 d-flex flex-column justify-content-center'><span>"+publication.title+"</span><span>"+publication.journal+"</span></div>";
-    node += "  <div class='col-12 col-md-3 col-lg-2 d-none d-md-flex flex-column justify-content-center align-items-center'>"+author_node+"</div>";
-    node += "</div>";
-
-  }
-  $("#publication .container").append($(node));
-  $('#paper').on('show.bs.modal', function (e) {
-    var image = $(e.relatedTarget).data('image');
-    var abstract = $(e.relatedTarget).data('abstract');
-    if (image != '') {
-      var node = "<div class='col-12 col-md-6'><img src='/img/publications/"+image+"'></div>"
-          node +="<div class='col-12 col-md-6'>"+abstract+"</div>";
-    } else {
-      var node = "<div class='col-12'>"+abstract+"</div>";
-    }
-    $('#paper .row').html(node);
-  })
+  });
 });
+$('#paper').on('show.bs.modal', function (e) {
+  var image = $(e.relatedTarget).data('image');
+  var abstract = $(e.relatedTarget).data('abstract');
+  if (image != '') {
+    var node = "<div class='col-12 col-md-6'><img src='/img/publications/"+image+"'></div>"
+        node +="<div class='col-12 col-md-6'>"+abstract+"</div>";
+  } else {
+    var node = "<div class='col-12'>"+abstract+"</div>";
+  }
+  $('#paper .row').html(node);
+})
 </script>
 
 

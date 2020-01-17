@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="../dist/jquery-3.4.1.min.js"></script>
+  <script src="../dist/papaparse.min.js"></script>
   <script src="../dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../dist/bootstrap-4.3.1-dist/css/bootstrap.min.css">
@@ -120,7 +121,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 programs">
+        <div class="col-12 programs" id="programs">
           <div class="row">
             <div class="col-12 col-md-3 col-lg-2"><span>起迄時間</span></div>
             <div class="col-12 col-md-9 col-lg-10"><span>資助機構</span><span>計畫名稱</span></div>
@@ -139,16 +140,19 @@
 <script src="../js/script.js"></script>
 <script>
 includeHTML();
-$.getJSON("../data/programs.json", function (programs) {
-  var node = "";
-  for (index in programs) {
-    program = programs[index];
-    node += "<div class='row'>";
-    node += "  <div class='col-12 col-md-3 col-lg-2'><span>" + program.duration + "</span></div>";
-    node += "  <div class='col-12 col-md-7 col-lg-8'><span>" + program.source_en + "</span><span>" + program.desc_en + "</span></div>";
-    node += "</div>";
-  }
-  $(node).insertAfter('.programs .row');
+$.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0z0X8iRJ9hflgbQ2NkmommiEsBveMHdhcFUXgK9-IC6g8iC-L1LHh-euUxVVO83jN9nTLF-J3hd_e/pub?output=csv&gid=1528986696', function(data) {
+  Papa.parse(data, {
+    header: true,
+    worker: true,
+    step: function(results) {
+      var node = "";
+      node += "<div class='row'>";
+      node += "  <div class='col-12 col-md-3 col-lg-2'><span>" + results.data.duration + "</span></div>";
+      node += "  <div class='col-12 col-md-7 col-lg-8'><span>" + results.data.source_en + "</span><span>" + results.data.desc_en + "</span></div>";
+      node += "</div>";
+      $('#programs').append(node);
+    }
+  });
 });
 </script>
 </html>
