@@ -23,7 +23,35 @@
     <div class="slideshow-image" style="background-image: url('img/1065.jpg')"></div>
     <div class="slideshow-image" style="background-image: url('img/27073275_10215343601365558_6434774905797710019_n.jpg')"></div>
     <div class="slideshow-image" style="background-image: url('img/DSC03654.jpg')"></div>
-    <header w3-include-html="zh-tw/header.html" data-location="index.html"></header>
+    <header>
+      <div class="header-left">
+        <div class="wrapper">
+          <a href="../zh-tw/index.html" class="d-flex">
+            <img src="../img/NCTU_emblem.svg" alt="">
+            <div class="d-flex flex-column">
+              <span>液晶實驗室</span>
+              <span>NCTU Liquid Cyrstal Lab</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="header-right d-none d-md-block">
+        <ul>
+          <li><a href="../zh-tw/index.html"><span class="wrap"><span>About</span><span>關於我們</span></span></a></li>
+          <li><a href="../zh-tw/member.html"><span class="wrap"><span>Member</span><span>實驗室成員</span></span></a></li>
+          <li><a href="../zh-tw/research.html"><span class="wrap"><span>Research</span><span>研究方向</span></span></a></li>
+          <li><a href="../zh-tw/publication.html"><span class="wrap"><span>Publication</span><span>著作發表</span></span></a></li>
+          <li><a href="../en/index.html"><span class="wrap"><span>Language</span><span>English</span></span></a></li>
+        </ul>
+      </div>
+      <div class="header-right d-flex d-md-none flex-row justify-content-end align-items-center">
+        <ul>
+          <li class="fa-icon">
+            <i id="toggler" class="fa fa-bars bar fa-2x"></i>
+          </li>
+        </ul>
+      </div>
+    </header>
     <div class="inner flex-grow-1 d-flex flex-column justify-content-center">
       <h1>液晶實驗室</h1>
       <h4>LC Lab</h4>
@@ -181,7 +209,20 @@
     <span>由XXX維護</span>
     <span>2015/9/28 更新</span>
   </footer>
-  <section id="nav-mobile" w3-include-html="zh-tw/nav-mobile.html" style="display: none;"></section>
+  <section id="nav-mobile" style="display: none;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><a href="../zh-tw/index.html">關於我們</a></div>
+        <div class="col-12"><a href="../zh-tw/member.html">實驗室成員</a></div>
+        <div class="col-12"><a href="../zh-tw/research.html">研究方向</a></div>
+        <div class="col-12"><a href="../zh-tw/publication.html">著作發表</a></div>
+        <div class="col-12"><a href="../en/index.html">English</a></div>
+      </div>
+    </div>
+    <div class="closenav">
+      <i id="closenav" class="fas fa-times"></i>
+    </div>
+  </section>
   <div id="announcement" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -200,7 +241,6 @@
 </body>
 <script src="js/script.js"></script>
 <script>
-includeHTML();
 $.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0z0X8iRJ9hflgbQ2NkmommiEsBveMHdhcFUXgK9-IC6g8iC-L1LHh-euUxVVO83jN9nTLF-J3hd_e/pub?output=csv&gid=517876315', function(data) {
   Papa.parse(data, {
     header: true,
