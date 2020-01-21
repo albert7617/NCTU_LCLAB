@@ -173,7 +173,7 @@ $.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0z0X8iRJ9hflgbQ2Nkmommi
         mail = "<a href='mailto:"+results.data.email+"'><i class='fas fa-envelope'></i></a>";
       }
       if (results.data.desc != '') {
-        desc = "<a href='/cv/"+results.data.desc+"' target='_blank'><i class='fas fa-info-circle'></i></a>";
+        desc = "<a href='../cv/"+results.data.desc+"' target='_blank'><i class='fas fa-info-circle'></i></a>";
       }
       if (results.data.avatar == '') {
         avatar = 'avatar.jpg';
@@ -182,7 +182,7 @@ $.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0z0X8iRJ9hflgbQ2Nkmommi
       }
       node += "<div class='col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column px-5 py-4 p-sm-2'> ";
       node += "  <div class='avatar-container flex-grow-1'>";
-      node += "    <img class='avatar' src='/img/members/"+avatar+"' onerror='this.onerror=null;this.src=\"../img/members/avatar.jpg\";'>";
+      node += "    <img class='avatar' src='../img/members/"+avatar+"' onerror='this.onerror=null;this.src=\"../img/members/avatar.jpg\";'>";
       node += "  </div>";
       node += "  <div class='avatar-detail d-flex flex-row p-3'> ";
       node += "    <div class='d-flex flex-column'>";
