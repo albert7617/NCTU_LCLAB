@@ -100,7 +100,7 @@
 </body>
 <script src="../js/script.js"></script>
 <script>
-$.get('/data/publications.csv', function(data) {
+$.get('../data/publications.csv', function(data) {
   Papa.parse(data, {
     header: true,
     worker: true,

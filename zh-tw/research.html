@@ -179,7 +179,7 @@
 </body>
 <script src="../js/script.js"></script>
 <script>
-$.get('/data/programs.csv', function(data) {
+$.get('../data/programs.csv', function(data) {
   Papa.parse(data, {
     header: true,
     worker: true,
