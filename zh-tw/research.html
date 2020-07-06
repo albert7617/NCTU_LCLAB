@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -180,7 +179,7 @@
 </body>
 <script src="../js/script.js"></script>
 <script>
-$.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0z0X8iRJ9hflgbQ2NkmommiEsBveMHdhcFUXgK9-IC6g8iC-L1LHh-euUxVVO83jN9nTLF-J3hd_e/pub?output=csv&gid=1528986696', function(data) {
+$.get('/data/programs.csv', function(data) {
   Papa.parse(data, {
     header: true,
     worker: true,
